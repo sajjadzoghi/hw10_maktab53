@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="ex3.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row card border-0">
+        <div class="card-header bg-white" style="height: 5rem">
+            <button type="button" onclick="select_all()" class="btn bg-white rounded btn-success btn-outline-success h-75">select all</button>
+            <button type="button" onclick="deselect_all()" class="btn bg-white rounded btn-secondary btn-outline-secondary ml-3 h-75">deselect
+                all
+            </button>
+            <button type="button" onclick="reset_all()" class="btn bg-white rounded btn-danger btn-outline-danger ml-3 h-75">reset</button>
+        </div>
+        <div class="card-body">
+            <h2 id="wlc-name">Welcome User</h2>
+            <div class="card border-0 ml-auto mr-auto mt-3 shadow" style="width: 40%;">
+                <div class="card-body ml-auto mr-auto">
+                    <div class="form-inline">
+                        <label for="input-name">Your Name:</label>
+                        <input type="text" id="input-name" name="input-name" class="form-control w-50 ml-2" placeholder="Enter name">
+                        <button type="button" class="btn btn-primary ml-2" onclick="welcome()">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <form class="mt-5">
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="python" name="lang">
+                    <label class="form-check-label" for="python">Python</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="js" name="lang">
+                    <label class="form-check-label" for="js">JS</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="java" name="lang">
+                    <label class="form-check-label" for="java">Java</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="php" name="lang">
+                    <label class="form-check-label" for="php">PHP</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="android" name="lang">
+                    <label class="form-check-label" for="android">Android</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="katlin" name="lang">
+                    <label class="form-check-label" for="katlin">Katlin</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="go" name="lang">
+                    <label class="form-check-label" for="go">Go</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="c++" name="lang">
+                    <label class="form-check-label" for="c++">C++</label>
+                </div>
+                <div class="form-check ml-3">
+                    <input class="form-check-input" type="checkbox" value="" id="c#" name="lang">
+                    <label class="form-check-label" for="c#">C#</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function welcome() {
+        let name = document.getElementById('input-name').value;
+        document.getElementById('wlc-name').innerHTML = `Welcome ${name}`
+    }
+
+    function select_all() {
+        let langs = document.getElementsByName('lang');
+        for (let lang of langs) {
+            lang.checked = true;
+        }
+    }
+
+    function deselect_all() {
+        let langs = document.getElementsByName('lang');
+        for (let lang of langs) {
+            lang.checked = false;
+        }
+    }
+
+    function reset_all() {
+        deselect_all();
+        document.getElementById('input-name').value = '';
+        document.getElementById('wlc-name').innerHTML = 'Welcome User';
+    }
+
+</script>
+</body>
+</html>

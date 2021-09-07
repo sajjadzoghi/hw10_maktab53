@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+
+    let emps = [];
+    let person = prompt('Enter employee information:');
+    while (person) {
+        let emp = {};
+        person = person.split(',');
+        if (isNaN(person[0]) === true && isNaN(person[1]) === false && isNaN(person[3]) === false) {
+            emp.name = person[0];
+            emp.age = Number(person[1]);
+            emp.salary = Number(person[3]);
+            if (person[2] === "yes") {
+                emp.has_photo = true;
+            } else if (person[2] === "no") {
+                emp.has_photo = false;
+            } else {
+                alert("Please enter employee information, correctly!");
+                person = prompt('Enter employee information:');
+                continue;
+            }
+        } else {
+            alert("Please enter employee information, correctly!");
+            person = prompt('Enter employee information:');
+            continue;
+        }
+        emps.push(emp);
+        person = prompt('Enter employee information:');
+    }
+
+    console.log(emps);
+
+
+    let max = Math.max.apply(Math, emps.map(function (x) {
+        return x.salary;
+    }));
+    let names = '';
+    for (let empl of emps) {
+        if (empl.salary === max) {
+            names += `[${empl.name}] `;
+        }
+    }
+    console.log('Names with most salary:', names)
+
+
+    let sum = 0
+    for (let empl of emps) {
+        sum += empl.salary;
+    }
+    console.log('Salaries average:', sum / emps.length);
+
+
+    let s = 0;
+    for (let empl of emps) {
+        if (empl.has_photo === true) {
+            s++;
+        }
+    }
+    if (s === emps.length) {
+        console.log('Everyone has a photo.');
+    } else {
+        console.log('Not everyone has a photo.');
+    }
+
+</script>
+</body>
+</html>
+<!--sajjad,24,yes,6000-->
+<!--hasan,32,yes,7500-->
+<!--ali,34,yes,8000-->
+<!--mohsen,34,yes,8000-->
+<!--hamed,22,yes,5000-->

@@ -1,0 +1,23 @@
+.btn-success:hover {
+    color: rgb(162, 210, 127);
+}
+
+.btn-success:focus {
+    color: rgb(162, 210, 127);
+}
+
+.btn-secondary:hover {
+    color: rgba(83, 83, 83, 0.4);
+}
+
+.btn-secondary:focus {
+    color: rgba(83, 83, 83, 0.4);
+}
+
+.btn-danger:hover {
+    color: rgb(219, 135, 135);
+}
+
+.btn-danger:focus {
+    color: rgb(219, 135, 135);
+}

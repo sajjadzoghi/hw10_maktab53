@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+
+    let TLDs = ['com', 'net', 'org', 'ir'];
+    let DNs = []
+    for (let i = 1; i <= 4; i++) {
+        let dname = prompt('Enter a domain name:');
+        DNs.push(dname);
+    }
+    let domains = {};
+    for (let dn of DNs) {
+        domains[dn] = {};      //Here, "domains.dn" doesn't work! why?! I think because dn is a string and by this way it will be converted to a key..
+        for (let tld of TLDs) {
+            domains[dn][tld] = `${dn}.${tld}`;
+        }
+    }
+    console.table(domains);
+
+</script>
+</body>
+</html>
