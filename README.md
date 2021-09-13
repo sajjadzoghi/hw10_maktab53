@@ -1,2 +1,2 @@
-# hw10_maktab53
+# hw10_maktab
 ### 3 pro-exercises from JavaScript & DOM.
